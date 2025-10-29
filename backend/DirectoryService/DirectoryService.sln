@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitignore = ..\.gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Domain", "src\DirectoryService.Domain\DirectoryService.Domain.csproj", "{F30D1AB8-555F-4D0A-8A0F-4824BCC4B8B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Presentation", "src\DirectoryService.Presentation\DirectoryService.Presentation.csproj", "{48F930C8-A17D-432A-804F-DFA35C05200B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Application", "src\DirectoryService.Application\DirectoryService.Application.csproj", "{103761CC-4BE1-4D1E-B8C4-B4C4928C5CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Contracts", "src\DirectoryService.Contracts\DirectoryService.Contracts.csproj", "{F74E7407-0CBA-4620-BF71-FABAF0B6C6CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Infrastructure", "src\DirectoryService.Infrastructure\DirectoryService.Infrastructure.csproj", "{43716723-4019-425A-9B86-D5623C83F9E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F30D1AB8-555F-4D0A-8A0F-4824BCC4B8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30D1AB8-555F-4D0A-8A0F-4824BCC4B8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30D1AB8-555F-4D0A-8A0F-4824BCC4B8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30D1AB8-555F-4D0A-8A0F-4824BCC4B8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F930C8-A17D-432A-804F-DFA35C05200B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F930C8-A17D-432A-804F-DFA35C05200B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F930C8-A17D-432A-804F-DFA35C05200B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F930C8-A17D-432A-804F-DFA35C05200B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103761CC-4BE1-4D1E-B8C4-B4C4928C5CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103761CC-4BE1-4D1E-B8C4-B4C4928C5CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103761CC-4BE1-4D1E-B8C4-B4C4928C5CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103761CC-4BE1-4D1E-B8C4-B4C4928C5CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74E7407-0CBA-4620-BF71-FABAF0B6C6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74E7407-0CBA-4620-BF71-FABAF0B6C6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74E7407-0CBA-4620-BF71-FABAF0B6C6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74E7407-0CBA-4620-BF71-FABAF0B6C6CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43716723-4019-425A-9B86-D5623C83F9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43716723-4019-425A-9B86-D5623C83F9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43716723-4019-425A-9B86-D5623C83F9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43716723-4019-425A-9B86-D5623C83F9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1370539C-D5E2-444B-BE38-C735B7BD8067}
+	EndGlobalSection
+EndGlobal
