@@ -1,9 +1,12 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
 
 namespace DirectoryService.Domain.Department.ValueObjects;
 
 public sealed record DepartmentName
 {
+    public const int MinLength = 3;
+    public const int MaxLength = 150;
+
     public string Value { get; }
 
     private DepartmentName(string value) => Value = value;
@@ -13,8 +16,8 @@ public sealed record DepartmentName
         if (string.IsNullOrWhiteSpace(value))
             return "Department name is required";
 
-        if (value.Length is < 3 or > 150)
-            return "Department name must be 3–150 characters";
+        if (value.Length is < MinLength or > MaxLength)
+            return $"Department name must be {MinLength}–{MaxLength} characters";
 
         return new DepartmentName(value);
     }

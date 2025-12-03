@@ -24,7 +24,11 @@ public class Location
 
     public IReadOnlyCollection<DepartmentLocation> Departments => _departments;
 
-    private Location(Guid id, LocationName name, LocationAddress address, LocationTimezone timezone)
+    private Location(
+        Guid id,
+        LocationName name,
+        LocationAddress address,
+        LocationTimezone timezone)
     {
         Id = id;
         Name = name;
@@ -35,8 +39,15 @@ public class Location
         UpdatedAt = CreatedAt;
     }
 
-    public static Result<Location, string> Create(LocationName name, LocationAddress address, LocationTimezone tz)
+    public static Result<Location, string> Create(
+        LocationName name,
+        LocationAddress address,
+        LocationTimezone tz)
     {
-        return new Location(Guid.NewGuid(), name, address, tz);
+        return new Location(
+            Guid.NewGuid(),
+            name,
+            address,
+            tz);
     }
 }

@@ -5,8 +5,8 @@ namespace DirectoryService.Domain.Department;
 
 public sealed class Department
 {
-    private readonly List<DepartmentPosition> _positions = [];
     private readonly List<DepartmentLocation> _locations = [];
+    private readonly List<DepartmentPosition> _positions = [];
 
     public Guid Id { get; private set; }
 
@@ -26,17 +26,16 @@ public sealed class Department
 
     public DateTime UpdatedAt { get; private set; }
 
-    public IReadOnlyList<DepartmentPosition> Positions => _positions;
-
     public IReadOnlyList<DepartmentLocation> Locations => _locations;
+
+    public IReadOnlyList<DepartmentPosition> Positions => _positions;
 
     private Department(
         DepartmentName name,
         DepartmentIdentifier identifier,
         Guid? parentId,
         DepartmentPath path,
-        short depth,
-        bool isActive)
+        short depth)
     {
         Id = Guid.NewGuid();
         Name = name;
@@ -44,8 +43,9 @@ public sealed class Department
         ParentId = parentId;
         Path = path;
         Depth = depth;
-        IsActive = isActive;
+        IsActive = true;
         CreatedAt = DateTime.UtcNow;
+        UpdatedAt = CreatedAt;
     }
 
     public static Result<Department, string> Create(
@@ -68,6 +68,12 @@ public sealed class Department
         if (pathResult.IsFailure)
             return pathResult.Error;
 
-        return new Department(nameResult.Value, identifierResult.Value, parentId, pathResult.Value, depth, isActive);
+        return new Department(
+            nameResult.Value,
+            identifierResult.Value,
+            parentId,
+            pathResult.Value,
+            depth,
+            isActive);
     }
 }

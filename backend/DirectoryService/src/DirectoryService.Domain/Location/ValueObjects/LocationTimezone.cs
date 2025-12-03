@@ -6,16 +6,43 @@ public sealed record LocationTimezone
 {
     public string Value { get; }
 
-    private LocationTimezone(string value) => Value = value;
+    private LocationTimezone(string value)
+    {
+        Value = value;
+    }
 
     public static Result<LocationTimezone, string> Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            return "Timezone required";
+            return "Timezone is required";
 
-        if (!value.Contains('/', StringComparison.Ordinal))
-            return "Timezone must be valid IANA code (e.g. Europe/Moscow).";
+        string normalized = value.Trim();
 
-        return new LocationTimezone(value);
+        if (!IsValidSystemTimeZoneId(normalized))
+            return $"Timezone '{normalized}' is not recognized by the system";
+
+        return new LocationTimezone(normalized);
+    }
+
+    public TimeZoneInfo ToTimeZoneInfo()
+    {
+        return TimeZoneInfo.FindSystemTimeZoneById(Value);
+    }
+
+    private static bool IsValidSystemTimeZoneId(string id)
+    {
+        try
+        {
+            TimeZoneInfo.FindSystemTimeZoneById(id);
+            return true;
+        }
+        catch (TimeZoneNotFoundException)
+        {
+            return false;
+        }
+        catch (InvalidTimeZoneException)
+        {
+            return false;
+        }
     }
 }
