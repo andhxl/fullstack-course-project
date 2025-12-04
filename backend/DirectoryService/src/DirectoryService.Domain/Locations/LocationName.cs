@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace DirectoryService.Domain.Location.ValueObjects;
+namespace DirectoryService.Domain.Locations;
 
 public sealed record LocationName
 {

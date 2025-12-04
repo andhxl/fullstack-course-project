@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using System.Text.RegularExpressions;
 
-namespace DirectoryService.Domain.Location.ValueObjects;
+namespace DirectoryService.Domain.Locations;
 
 public sealed record LocationAddress
 {

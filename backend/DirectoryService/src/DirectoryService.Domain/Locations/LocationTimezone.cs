@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace DirectoryService.Domain.Location.ValueObjects;
+namespace DirectoryService.Domain.Locations;
 
 public sealed record LocationTimezone
 {
@@ -24,25 +24,9 @@ public sealed record LocationTimezone
         return new LocationTimezone(normalized);
     }
 
-    public TimeZoneInfo ToTimeZoneInfo()
-    {
-        return TimeZoneInfo.FindSystemTimeZoneById(Value);
-    }
+    public TimeZoneInfo ToTimeZoneInfo() =>
+        TimeZoneInfo.FindSystemTimeZoneById(Value);
 
-    private static bool IsValidSystemTimeZoneId(string id)
-    {
-        try
-        {
-            TimeZoneInfo.FindSystemTimeZoneById(id);
-            return true;
-        }
-        catch (TimeZoneNotFoundException)
-        {
-            return false;
-        }
-        catch (InvalidTimeZoneException)
-        {
-            return false;
-        }
-    }
+    private static bool IsValidSystemTimeZoneId(string id) =>
+        TimeZoneInfo.TryFindSystemTimeZoneById(id, out _);
 }
