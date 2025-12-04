@@ -1,17 +1,14 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using DirectoryService.Infrastructure;
+using DirectoryService.Presentation;
 
-builder.Services.AddControllers();
+var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+builder.Services.AddPresentation();
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "v1"));
-}
-
-app.MapControllers();
+app.UsePresentation();
 
 app.Run();
