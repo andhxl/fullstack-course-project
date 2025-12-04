@@ -1,14 +1,12 @@
-﻿using CSharpFunctionalExtensions;
-using DirectoryService.Domain.Department;
-using DirectoryService.Domain.Location.ValueObjects;
+﻿using DirectoryService.Domain.DepartmentLocations;
 
-namespace DirectoryService.Domain.Location;
+namespace DirectoryService.Domain.Locations;
 
-public class Location
+public sealed class Location
 {
     private readonly List<DepartmentLocation> _departments = [];
 
-    public Guid Id { get; private set; }
+    public LocationId Id { get; private set; }
 
     public LocationName Name { get; private set; }
 
@@ -24,30 +22,17 @@ public class Location
 
     public IReadOnlyCollection<DepartmentLocation> Departments => _departments;
 
-    private Location(
-        Guid id,
+    public Location(
         LocationName name,
         LocationAddress address,
         LocationTimezone timezone)
     {
-        Id = id;
+        Id = new LocationId(Guid.NewGuid());
         Name = name;
         Address = address;
         Timezone = timezone;
         IsActive = true;
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = CreatedAt;
-    }
-
-    public static Result<Location, string> Create(
-        LocationName name,
-        LocationAddress address,
-        LocationTimezone tz)
-    {
-        return new Location(
-            Guid.NewGuid(),
-            name,
-            address,
-            tz);
     }
 }

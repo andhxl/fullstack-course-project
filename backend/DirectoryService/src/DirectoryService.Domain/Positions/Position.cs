@@ -1,14 +1,13 @@
 ﻿using CSharpFunctionalExtensions;
-using DirectoryService.Domain.Department;
-using DirectoryService.Domain.Position.ValueObjects;
+using DirectoryService.Domain.DepartmentPositions;
 
-namespace DirectoryService.Domain.Position;
+namespace DirectoryService.Domain.Positions;
 
-public class Position
+public sealed class Position
 {
     private readonly List<DepartmentPosition> _departments = [];
 
-    public Guid Id { get; private set; }
+    public PositionId Id { get; private set; }
 
     public PositionName Name { get; private set; }
 
@@ -22,9 +21,9 @@ public class Position
 
     public IReadOnlyCollection<DepartmentPosition> Departments => _departments;
 
-    private Position(Guid id, PositionName name, string? description)
+    private Position(PositionName name, string? description)
     {
-        Id = id;
+        Id = new PositionId(Guid.NewGuid());
         Name = name;
         Description = description;
         IsActive = true;
@@ -34,9 +33,9 @@ public class Position
 
     public static Result<Position, string> Create(PositionName name, string? description)
     {
-        if (description?.Length > 1000)
+        if (!string.IsNullOrEmpty(description) && description.Length > 1000)
             return "Description too long";
 
-        return new Position(Guid.NewGuid(), name, description);
+        return new Position(name, description);
     }
 }

@@ -1,7 +1,7 @@
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
 using System.Text.RegularExpressions;
 
-namespace DirectoryService.Domain.Department.ValueObjects;
+namespace DirectoryService.Domain.Departments;
 
 public sealed record DepartmentIdentifier
 {

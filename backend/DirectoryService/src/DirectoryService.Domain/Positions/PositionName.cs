@@ -1,6 +1,6 @@
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
 
-namespace DirectoryService.Domain.Position.ValueObjects;
+namespace DirectoryService.Domain.Positions;
 
 public sealed record PositionName
 {

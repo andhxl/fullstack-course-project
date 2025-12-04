@@ -1,6 +1,6 @@
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
 
-namespace DirectoryService.Domain.Department.ValueObjects;
+namespace DirectoryService.Domain.Departments;
 
 public sealed record DepartmentName
 {
